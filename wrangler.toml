@@ -6,16 +6,4 @@ compatibility_date = "2024-02-20"
 command = "npm run build"
 
 [site]
-bucket = ".next/static"
-
-[[routes]]
-pattern = "/*"
-custom_domain = false
-
-[[routes]]
-pattern = "/_next/*"
-custom_domain = false
-
-[[routes]]
-pattern = "/api/*"
-custom_domain = false 
+bucket = ".next/static" 

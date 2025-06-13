@@ -1,0 +1,16 @@
+{
+  "name": "Golden Chains Trading LLC",
+  "short_name": "Golden Chains",
+  "description": "Dubai based auto spare parts and components trading company",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+} 

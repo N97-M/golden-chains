@@ -6,11 +6,10 @@ const uaeOutlets = [
   {
     type: 'warehouse',
     title: 'Golden Chains - Warehouse',
-    address: '',
     location: 'https://maps.app.goo.gl/iDz9HpjFd4ZDx5Mj8',
     image: '/outlets/warehouse-golden-chains/main.jpg',
     description: 'Our main warehouse facility in Dubai, ensuring efficient distribution and storage of our extensive range of auto parts.',
-    slug: 'warehouse-golden-chains'
+    slug: 'warehouse-golden-chains-1'
   },
   {
     type: 'showroom',
@@ -22,6 +21,8 @@ const uaeOutlets = [
     slug: 'golden-chains'
   }
 ];
+
+
 
 const sudanOutlets = [
   {
@@ -45,7 +46,6 @@ const sudanOutlets = [
   {
     type: 'warehouse',
     title: 'Warehouse (Hanco - Sudan)',
-    address: 'Khartoum North\nIndustrial Area\nBuilding No. 20\nBlock 1',
     location: 'https://maps.app.goo.gl/iDz9HpjFd4ZDx5Mj8',
     image: '/outlets/warehouse-hanco/main.jpg',
     description: 'Our warehouse facility in Khartoum North Industrial Area, supporting our operations in Sudan.',
@@ -76,11 +76,10 @@ export default function OutletsPage() {
         </nav>
 
         <h1 className="text-4xl font-bold text-center text-black mb-16">Our Outlets</h1>
-        
-        {/* UAE Outlets */}
+          {/* UAE Outlets */}
         <div className="mb-12">
           <h2 className="text-2xl font-bold text-black mb-6">United Arab Emirates</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {uaeOutlets.map((outlet, index) => (
               <Link key={index} href={`/outlets/${outlet.slug}`}>
                 <div className="bg-[#1a1f2e] rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer">
@@ -98,15 +97,11 @@ export default function OutletsPage() {
                     <h2 className="text-xl font-bold text-white mb-2">{outlet.title}</h2>
                     <p className="text-gray-300 text-sm mb-3">{outlet.description}</p>
                     <div className="space-y-1">
-                      <p className="text-gray-300 text-sm">
-                        {outlet.type === 'warehouse' && outlet.slug === 'warehouse-golden-chains' ? (
-                          outlet.address
-                        ) : (
-                          <>
-                            <span className="font-semibold text-white">Address:</span> {outlet.address}
-                          </>
-                        )}
-                      </p>
+                      {outlet.type !== 'warehouse' && (
+                        <p className="text-gray-300 text-sm">
+                          <span className="font-semibold text-white">Address:</span> {outlet.address}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -136,9 +131,11 @@ export default function OutletsPage() {
                     <h2 className="text-xl font-bold text-white mb-2">{outlet.title}</h2>
                     <p className="text-gray-300 text-sm mb-3">{outlet.description}</p>
                     <div className="space-y-1">
-                      <p className="text-gray-300 text-sm">
-                        <span className="font-semibold text-white">Address:</span> {outlet.address}
-                      </p>
+                      {outlet.type !== 'warehouse' && (
+                        <p className="text-gray-300 text-sm">
+                          <span className="font-semibold text-white">Address:</span> {outlet.address}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -149,4 +146,4 @@ export default function OutletsPage() {
       </div>
     </div>
   );
-} 
+}

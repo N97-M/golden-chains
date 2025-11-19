@@ -1,12 +1,17 @@
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaPhone, FaMobileAlt, FaWhatsapp } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 export default function QuickInfo() {
+  const { t } = useTranslation();
+
   return (
     <section className="relative py-16 text-white">
       {/* Background Image with Overlay */}
-      <div 
+      <div
         className="absolute inset-0 z-0 overflow-hidden hidden md:block"
         style={{
           backgroundImage: 'url("/background.png")',
@@ -41,16 +46,16 @@ export default function QuickInfo() {
                     priority
                   />
                 </div>
-                <h3 className="text-xl font-semibold">Quick Info</h3>
+                <h3 className="text-xl font-semibold">{t('quickInfo.title')}</h3>
               </div>
               <p className="text-gray-300 leading-relaxed">
-                We are your trusted partner for high-quality auto parts and components. With years of experience and a commitment to excellence
+                {t('quickInfo.description')}
               </p>
             </div>
 
             {/* Brands */}
             <div>
-              <h3 className="text-xl font-semibold mb-4">Brands</h3>
+              <h3 className="text-xl font-semibold mb-4">{t('quickInfo.brandsTitle')}</h3>
               <div className="space-y-2">
                 <p className="text-gray-300">KYB</p>
                 <p className="text-gray-300">Perfect Rubber Parts</p>
@@ -65,11 +70,11 @@ export default function QuickInfo() {
 
             {/* Contact Info */}
             <div>
-              <h3 className="text-xl font-semibold mb-4">Contact Info</h3>
+              <h3 className="text-xl font-semibold mb-4">{t('quickInfo.contactTitle')}</h3>
               <div className="flex flex-col space-y-3">
-                <p className="text-gray-300">P.O.Box: 378150</p>
-                <p className="text-gray-300">Shop No. 7, Al Habtoor Building,</p>
-                <p className="text-gray-300">Naif Deira Dubai, UAE</p>
+                <p className="text-gray-300">{t('quickInfo.address.poBox')}</p>
+                <p className="text-gray-300">{t('quickInfo.address.shop')}</p>
+                <p className="text-gray-300">{t('quickInfo.address.area')}</p>
                 <div className="flex items-center space-x-3">
                   <FaPhone className="text-gray-300 text-xl" />
                   <p className="text-gray-300">Pho: +971 4 295 7412</p>
@@ -87,7 +92,7 @@ export default function QuickInfo() {
 
             {/* Location Image */}
             <div>
-              <h3 className="text-xl font-semibold mb-4">Our Location</h3>
+              <h3 className="text-xl font-semibold mb-4">{t('quickInfo.locationTitle')}</h3>
               <div className="relative aspect-square w-full rounded-lg overflow-hidden">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.0241397780046!2d55.30641197414009!3d25.2697733776643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43003eb15571%3A0x712da1f0cd802ffd!2sGolden%20Chains%20Trading%20llc!5e0!3m2!1sen!2sae!4v1744301312318!5m2!1sen!2sae"
@@ -110,4 +115,3 @@ export default function QuickInfo() {
     </section>
   );
 }
- 

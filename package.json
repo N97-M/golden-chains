@@ -12,9 +12,12 @@
     "@headlessui/react": "^2.0.0",
     "@heroicons/react": "^2.0.18",
     "@sendgrid/mail": "^8.1.5",
+    "i18next": "^25.6.2",
+    "i18next-browser-languagedetector": "^8.2.0",
     "next": "14.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^16.3.3",
     "react-icons": "^5.0.1",
     "wrangler": "^4.14.0"
   },

@@ -1,7 +1,8 @@
-'use client';
+"use client";
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface Brand {
   id: number;
@@ -13,6 +14,7 @@ interface Brand {
 }
 
 export default function Brands() {
+  const { t } = useTranslation();
   // State to track which brand's video is currently playing
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
 
@@ -22,7 +24,7 @@ export default function Brands() {
       name: 'KYB',
       image: '/brands/kyb-image.jpg',
       video: '/brands/kyb-video.mp4',
-      description: 'KYB is a world-leading manufacturer of shock absorbers and suspension systems, providing superior quality and performance.',
+      description: t('brands.kyb'),
       products: [
         'Ball Joint',
         'Tie Rod End',
@@ -35,7 +37,7 @@ export default function Brands() {
       name: 'Perfect Rubber Parts',
       image: '/brands/perfect-rubber-image.jpg',
       video: '/brands/perfect-rubber-video.mp4',
-      description: 'Perfect Rubber Parts specializes in high-quality rubber components and automotive parts.',
+      description: t('brands.perfectRubber'),
       products: [
         'Suspension Bush',
         'Arm Bush',
@@ -52,7 +54,7 @@ export default function Brands() {
       name: 'IBN',
       image: '/brands/ibn-image.jpg',
       video: '/brands/ibn-video.mp4',
-      description: 'IBN delivers reliable automotive parts with a focus on quality and durability.',
+      description: t('brands.ibn'),
       products: [
         'Suspension Bush',
         'Arm Bush',
@@ -68,7 +70,7 @@ export default function Brands() {
       name: 'Next Auto',
       image: '/brands/next-auto-image.jpg',
       video: '/brands/next-auto-video.mp4',
-      description: 'Next Auto provides innovative automotive solutions with cutting-edge technology.',
+      description: t('brands.nextAuto'),
       products: [
         'Steering Rack',
         'Shock Absorber',
@@ -82,7 +84,7 @@ export default function Brands() {
       name: 'Smart',
       image: '/brands/smart-image.jpg',
       video: '/brands/smart-video.mp4',
-      description: 'Smart offers intelligent automotive solutions for modern vehicles.',
+      description: t('brands.smart'),
       products: [
         'Brake Pad',
         'Brake Shoe'
@@ -93,7 +95,7 @@ export default function Brands() {
       name: 'Mikatakno',
       image: '/brands/mikatakno-image.jpg',
       video: '/brands/mikatakno-video.mp4',
-      description: 'Mikatakno specializes in precision-engineered automotive components.',
+      description: t('brands.mikatakno'),
       products: [
         'Grey Gasket Maker'
       ]
@@ -103,7 +105,7 @@ export default function Brands() {
       name: 'Reliable Choice (RC)',
       image: '/brands/rc-image.jpg',
       video: '/brands/rc-video.mp4',
-      description: 'Reliable Choice (RC) provides dependable automotive parts for various vehicle applications.',
+      description: t('brands.reliableChoice'),
       products: [
         'Suspension Bush',
         'Arm Bush',
@@ -120,7 +122,7 @@ export default function Brands() {
       name: 'HKT',
       image: '/brands/hkt-image.jpg',
       video: '/brands/hkt-video.mp4',
-      description: 'HKT manufactures high-quality suspension and steering components with precision engineering.',
+      description: t('brands.hkt'),
       products: [
         'In Tank Fuel Pump'
       ]
@@ -141,28 +143,28 @@ export default function Brands() {
       {/* Navigation Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-4">
         <nav className="flex items-center text-gray-700">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="text-base text-white font-medium relative group"
           >
-            Home
+            {t('nav.home')}
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <span className="mx-2 text-gray-400 text-lg">›</span>
           <span className="text-base text-gray-300">
-            Brands
+            {t('nav.brands')}
           </span>
         </nav>
       </div>
 
       {/* Page Title */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-4xl font-bold text-white mb-8">Our Brands</h1>
-        
+        <h1 className="text-4xl font-bold text-white mb-8">{t('brandsPage.title')}</h1>
+
         {/* Brands Grid */}
         <div className="grid grid-cols-1 gap-12">
           {brands.map((brand) => (
-            <div 
+            <div
               key={brand.id}
               className="bg-white rounded-lg shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300"
             >
@@ -202,13 +204,13 @@ export default function Brands() {
                 <div className="flex flex-col">
                   <h2 className="text-3xl font-bold text-[#9B2C2C] mb-4">{brand.name}</h2>
                   <p className="text-gray-600 mb-6 leading-relaxed">{brand.description}</p>
-                  
+
                   {/* Products List */}
                   <div className="mt-auto">
-                    <h3 className="text-xl font-semibold mb-3 text-black">Products:</h3>
+                    <h3 className="text-xl font-semibold mb-3 text-black">{t('brandsPage.productsLabel')}</h3>
                     <ul className="grid grid-cols-2 gap-y-2 gap-x-4">
                       {brand.products.map((product, index) => (
-                        <li 
+                        <li
                           key={index}
                           className="flex items-center text-gray-700"
                         >

@@ -1,86 +1,87 @@
-'use client';
+"use client";
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 
 // Define types for team members
 interface TeamMember {
   name: string;
   role: string;
-  description?: string;
   image: string;
   email: string;
   whatsapp?: string;
 }
 
-// Team data
-const manager: TeamMember = {
-  name: "Hafiz Khairi",
-  role: "Founder (CEO & General Manager)",
-  image: "/team/hafiz-khairi.jpg",
-  email: "hafiz@goldenchains.ae"
-};
-
-const employees: TeamMember[] = [
-  {
-    name: "Mohamed Nour",
-    role: "Relationship & Operation Manager",
-    description: "Experienced manager with expertise in customer relations and operations.",
-    image: "/team/mohamed-nour.jpg",
-    email: "mohamednour@goldenchainstrd.com",
-    whatsapp: "971545032595",
-  },
-  {
-    name: "Musab Nour",
-    role: "Warehouse & Marketing Manager",
-    image: "/team/musab-nour.jpg",
-    whatsapp: "971547281970",
-    email: "info@goldenchainstrd.com"
-  },
-  {
-    name: "Mohamed Tarig",
-    role: "Sales Manager",
-    image: "/team/mohamed-tarig.jpg",
-    whatsapp: "971556835949",
-    email: "tarig@goldenchainstrd.com"
-  },
-  {
-    name: "Faisal Kv",
-    role: "Sales Executive",
-    image: "/team/faisal-kv.jpg",
-    whatsapp: "971569036566",
-    email: "faisal@goldenchainstrd.com"
-  },
-  {
-    name: "Ivy Goco",
-    role: "Administration Manager",
-    image: "/team/ivy-goco.jpg",
-    whatsapp: "971522400594",
-    email: "ivy@goldenchainstrd.com"
-  }
-];
-
 export default function OurTeam() {
+  const { t } = useTranslation();
+
+  // Team data
+  const manager: TeamMember = {
+    name: "Hafiz Khairi",
+    role: t('teamPage.roles.founder'),
+    image: "/team/hafiz-khairi.jpg",
+    email: "hafiz@goldenchains.ae"
+  };
+
+  const employees: TeamMember[] = [
+    {
+      name: "Mohamed Nour",
+      role: t('teamPage.roles.relManager'),
+      image: "/team/mohamed-nour.jpg",
+      email: "mohamednour@goldenchainstrd.com",
+      whatsapp: "971545032595",
+    },
+    {
+      name: "Musab Nour",
+      role: t('teamPage.roles.warehouseManager'),
+      image: "/team/musab-nour.jpg",
+      whatsapp: "971547281970",
+      email: "info@goldenchainstrd.com"
+    },
+    {
+      name: "Mohamed Tarig",
+      role: t('teamPage.roles.salesManager'),
+      image: "/team/mohamed-tarig.jpg",
+      whatsapp: "971556835949",
+      email: "tarig@goldenchainstrd.com"
+    },
+    {
+      name: "Faisal Kv",
+      role: t('teamPage.roles.salesExec'),
+      image: "/team/faisal-kv.jpg",
+      whatsapp: "971569036566",
+      email: "faisal@goldenchainstrd.com"
+    },
+    {
+      name: "Ivy Goco",
+      role: t('teamPage.roles.adminManager'),
+      image: "/team/ivy-goco.jpg",
+      whatsapp: "971522400594",
+      email: "ivy@goldenchainstrd.com"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-4">
         <nav className="flex items-center text-gray-700">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="text-base text-black font-medium relative group"
           >
-            Home
+            {t('nav.home')}
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <span className="mx-2 text-gray-400 text-lg">›</span>
           <span className="text-base text-gray-500">
-            Our Team
+            {t('nav.ourTeam')}
           </span>
         </nav>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-bold text-center mb-16 text-black">Our Team</h1>
+        <h1 className="text-4xl font-bold text-center mb-16 text-black">{t('teamPage.title')}</h1>
 
         {/* Manager Section */}
         <div className="flex justify-center mb-20">
@@ -108,7 +109,7 @@ export default function OurTeam() {
         {/* Employees Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {employees.map((employee) => (
-            <div 
+            <div
               key={employee.name}
               className="bg-[#1a1f2e] rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1 flex flex-col h-full"
             >
@@ -133,14 +134,14 @@ export default function OurTeam() {
                       rel="noopener noreferrer"
                       className="block w-full bg-[#722F37] text-white text-center py-2 rounded-md hover:bg-[#8B3746] transition-colors"
                     >
-                      Contact Me on WApp
+                      {t('teamPage.contactWApp')}
                     </Link>
                   )}
                   <Link
                     href={`mailto:${employee.email}`}
                     className="block w-full bg-[#1a1f2e] text-white text-center py-2 rounded-md border border-white hover:bg-white hover:text-[#1a1f2e] transition-colors"
                   >
-                    Email Me
+                    {t('teamPage.emailMe')}
                   </Link>
                 </div>
               </div>

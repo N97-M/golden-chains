@@ -89,8 +89,8 @@ export default function OutletsPage() {
                       src={outlet.image}
                       alt={outlet.title}
                       fill
+                      loading="lazy"
                       className="object-contain"
-                      priority
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
@@ -123,8 +123,8 @@ export default function OutletsPage() {
                       src={outlet.image}
                       alt={outlet.title}
                       fill
+                      loading="lazy"
                       className="object-contain"
-                      priority
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   </div>

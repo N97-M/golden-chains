@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import I18nProvider from "./i18n-provider";
+
 import Header from "./components/Header";
 import Breadcrumb from "./components/Breadcrumb";
 import QuickInfo from "./components/QuickInfo";
+import WelcomeModal from "./components/WelcomeModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <I18nProvider>
           <div className="min-h-screen bg-white">
+            <WelcomeModal />
             <Header />
             <Breadcrumb />
             <main>

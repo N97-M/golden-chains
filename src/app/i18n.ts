@@ -5,7 +5,10 @@ import LanguageDetector from "i18next-browser-languagedetector";
 const resources = {
   en: {
     translation: {
-      welcome: "Welcome",
+      welcome: {
+        title: "WELCOME TO GOLDEN CHAINS TRADING LLC",
+        close: "Continue"
+      },
       nav: {
         home: "Home",
         ourTeam: "Our Team",
@@ -115,7 +118,10 @@ const resources = {
   },
   ar: {
     translation: {
-      welcome: "مرحبا",
+      welcome: {
+        title: "مرحبًا بكم في جولدن تشينز للتجارة ذ.م.م",
+        close: "متابعة"
+      },
       nav: {
         home: "الرئيسية",
         ourTeam: "فريقنا",

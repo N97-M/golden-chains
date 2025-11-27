@@ -27,7 +27,7 @@ export default function Hero() {
     : "/hero/LAPTOP/video (2).mp4";
 
   return (
-    <div className={`w-full relative ${isMobile ? 'mt-20' : 'mt-16'}`}>
+    <div className={`w-full relative`}>
       <div className={`relative mx-auto ${
         isMobile 
           ? 'h-[500px] w-full'

@@ -32,11 +32,6 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Brands</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/products/hkt" className="hover:text-gray-300 transition-colors">
-                  HKT
-                </Link>
-              </li>
-              <li>
                 <Link href="/products/kyb" className="hover:text-gray-300 transition-colors">
                   KYB
                 </Link>
@@ -49,6 +44,36 @@ export default function Footer() {
               <li>
                 <Link href="/products/ibn" className="hover:text-gray-300 transition-colors">
                   IBN
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/next-auto-cv-joint" className="hover:text-gray-300 transition-colors">
+                  Next Auto CV Joint
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/next-auto-shock-absorbers" className="hover:text-gray-300 transition-colors">
+                  Next Auto Shock Absorbers
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/smart" className="hover:text-gray-300 transition-colors">
+                  Smart
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/mikatakno" className="hover:text-gray-300 transition-colors">
+                  Mikatakno
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/reliable-choice" className="hover:text-gray-300 transition-colors">
+                  Reliable Choice (RC)
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/hkt" className="hover:text-gray-300 transition-colors">
+                  HKT
                 </Link>
               </li>
             </ul>
@@ -99,4 +124,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-} 
+}

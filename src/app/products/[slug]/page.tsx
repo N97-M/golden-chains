@@ -123,7 +123,7 @@ const productData: ProductData = {
     ],
     video: '/products/IBN/ibn-video.mp4'
   },
-  'next-auto': {
+  'next-auto-shock-absorbers': {
     name: 'NEXT AUTO',
     description: 'Superior quality gas shock absorbers and steering rack',
     longDescription: `Next Auto specializes in gas shock absorbers with superior quality standards.
@@ -248,8 +248,8 @@ export default async function ProductPage({ params, searchParams }: Props) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Navigation */}
         <nav className="flex items-center text-gray-700">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="text-base text-black font-medium relative group"
           >
             Home
@@ -280,7 +280,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
               </video>
             </div>
           </div>
-          
+
           {/* Images and Second Video */}
           {validImages.slice(0, 3).map((image, index) => (
             <div key={index} className="relative h-80 bg-gray-100 rounded-lg overflow-hidden">
@@ -294,7 +294,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
               />
             </div>
           ))}
-          
+
           {/* Second Video Section */}
           <div className="relative h-80 bg-gray-100 rounded-lg overflow-hidden">
             <video

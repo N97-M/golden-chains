@@ -1,11 +1,11 @@
 "use client";
 
 
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
-import SearchBar from './SearchBar';
+
 
 export default function Products() {
   const { t } = useTranslation();
@@ -32,9 +32,14 @@ export default function Products() {
       description: t('brands.ibn')
     },
     {
-      name: 'NEXT AUTO',
+      name: 'NEXT AUTO SHOCK ABSORBERS',
       image: '/products/NEXT-AUTO/next-auto-main.jpg',
       description: t('brands.nextAuto')
+    },
+    {
+      name: 'NEXT AUTO CV JOINT',
+      image: '/products/NEXT-AUTO/next-auto-main.jpg',
+      description: t('brands.nextAutoCvJoint')
     },
     {
       name: 'SMART',
@@ -53,45 +58,37 @@ export default function Products() {
     }
   ];
 
-  const [filteredProducts, setFilteredProducts] = useState(products);
+
 
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-center mb-12 text-black">{t('nav.brands')}</h2>
-        <SearchBar
-          data={products}
-          onSearch={setFilteredProducts}
-          placeholder={t('search.products') || 'بحث عن منتج...'}
-        />
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
-              <Link
-                key={product.name}
-                href={product.name === 'RELIABLE CHOICE (RC)' ? '/products/reliable-choice' : `/products/${product.name.toLowerCase().replace(/[\s()]+/g, '-')}`}
-                className="group"
-              >
-                <div className="bg-[#1a1f2e] rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl h-full">
-                  <div className="relative h-48">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      loading="lazy"
-                      className="object-contain p-2 transform transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-bold text-center mb-2 text-white">{product.name}</h3>
-                    <p className="text-gray-200 text-center text-sm">{product.description}</p>
-                  </div>
+          {products.map((product) => (
+            <Link
+              key={product.name}
+              href={product.name === 'RELIABLE CHOICE (RC)' ? '/products/reliable-choice' : `/products/${product.name.toLowerCase().replace(/[\s()]+/g, '-')}`}
+              className="group"
+            >
+              <div className="bg-[#1a1f2e] rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl h-full">
+                <div className="relative h-48">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    loading="lazy"
+                    className="object-contain p-2 transform transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-              </Link>
-            ))
-          ) : (
-            <div className="col-span-full text-center text-gray-500">{t('search.noResults') || 'لا توجد نتائج.'}</div>
-          )}
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-center mb-2 text-white">{product.name}</h3>
+                  <p className="text-gray-200 text-center text-sm">{product.description}</p>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

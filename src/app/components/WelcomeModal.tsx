@@ -1,22 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
 export default function WelcomeModal() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const { t, i18n } = useTranslation();
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const seen = localStorage.getItem("welcome_seen");
-      if (!seen) {
-        setShow(true);
-        localStorage.setItem("welcome_seen", "1");
-      }
-    }
-  }, []);
 
   if (!show) return null;
 
@@ -24,13 +14,16 @@ export default function WelcomeModal() {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
       <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center max-w-xs w-full">
         <Image
-          src="/icons/logo.png"
+          src="/logo.png"
           alt="Golden Chains Logo"
           width={100}
           height={100}
           className="mb-4"
         />
-        <h2 className="text-xl font-bold text-center mb-2 text-black">
+        <h2
+          className={`text-xl font-bold mb-2 text-black ${i18n.language === 'ar' ? 'text-right' : 'text-center'}`}
+          dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
+        >
           {t("welcome.title", "WELCOME TO GOLDEN CHAINS TRADING LLC")}
         </h2>
         <button

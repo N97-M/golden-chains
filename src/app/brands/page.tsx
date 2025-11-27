@@ -67,16 +67,25 @@ export default function Brands() {
     },
     {
       id: 4,
-      name: 'Next Auto',
+      name: 'Next Auto Shock Absorbers',
       image: '/brands/next-auto-image.jpg',
       video: '/brands/next-auto-video.mp4',
       description: t('brands.nextAuto'),
       products: [
         'Steering Rack',
         'Shock Absorber',
-        'Drive Shaft',
-        'CV Joint',
         'Power Steering'
+      ]
+    },
+    {
+      id: 9,
+      name: 'Next Auto CV Joint',
+      image: '/products/NEXT-AUTO/outer-cv-joint.jpg',
+      video: '/brands/next-auto-video.mp4',
+      description: t('brands.nextAutoCvJoint'),
+      products: [
+        'Outer CV Joint',
+        'Inner CV Joint'
       ]
     },
     {

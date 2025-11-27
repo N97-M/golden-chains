@@ -4,13 +4,14 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
 export default function About() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isArabic = i18n.language === 'ar';
 
   return (
     <section className="py-16 bg-[#722F37]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-left">
+          <div className={isArabic ? "text-right" : "text-left"} dir={isArabic ? "rtl" : "ltr"}>
             <h2 className="text-4xl font-bold mb-3 text-white">
               {t('about.welcomeTo')}
             </h2>
@@ -19,7 +20,7 @@ export default function About() {
             </h1>
           </div>
 
-          <div className="space-y-6 text-white/90 text-lg leading-relaxed">
+          <div className={`space-y-6 text-white/90 text-lg leading-relaxed ${isArabic ? 'text-right' : ''}`} dir={isArabic ? "rtl" : "ltr"}>
             <p>
               {t('about.p1')}
             </p>
@@ -29,7 +30,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="text-right mt-12">
+          <div className={`${isArabic ? 'text-right' : 'text-right'} mt-12`}>
             <Link
               href="/about"
               className="inline-block bg-white text-[#722F37] px-8 py-3 rounded-md hover:bg-opacity-90 transition-colors text-lg font-medium"

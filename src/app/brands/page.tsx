@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface Brand {
@@ -17,6 +17,9 @@ export default function Brands() {
   const { t } = useTranslation();
   // State to track which brand's video is currently playing
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
+  const [isVideoLoading, setIsVideoLoading] = useState<number | null>(null);
+  const [isVideoPaused, setIsVideoPaused] = useState<number | null>(null);
+  const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
 
   const brands: Brand[] = [
     {
@@ -142,9 +145,45 @@ export default function Brands() {
   const toggleVideo = (brandId: number) => {
     if (playingVideo === brandId) {
       setPlayingVideo(null);
+      setIsVideoPaused(null);
     } else {
       setPlayingVideo(brandId);
+      setIsVideoLoading(brandId);
+      setIsVideoPaused(null);
     }
+  };
+
+  // Function to toggle play/pause
+  const togglePlayPause = (brandId: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    const video = videoRefs.current[brandId];
+    if (video) {
+      if (video.paused) {
+        video.play();
+        setIsVideoPaused(null);
+      } else {
+        video.pause();
+        setIsVideoPaused(brandId);
+      }
+    }
+  };
+
+  // Function to toggle fullscreen
+  const toggleFullscreen = (brandId: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    const video = videoRefs.current[brandId];
+    if (video) {
+      if (!document.fullscreenElement) {
+        video.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    }
+  };
+
+  // Handle video loaded
+  const handleVideoLoaded = (brandId: number) => {
+    setIsVideoLoading(null);
   };
 
   return (
@@ -181,12 +220,79 @@ export default function Brands() {
                 {/* Media Section */}
                 <div className="relative h-[300px] bg-gray-50 rounded-lg overflow-hidden group cursor-pointer" onClick={() => toggleVideo(brand.id)}>
                   {playingVideo === brand.id ? (
-                    <video
-                      src={brand.video}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      autoPlay
-                      controls
-                    />
+                    <div className="relative w-full h-full bg-black">
+                      {/* Loading Spinner */}
+                      {isVideoLoading === brand.id && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-10">
+                          <div className="animate-spin rounded-full h-16 w-16 border-4 border-white border-t-transparent"></div>
+                        </div>
+                      )}
+
+                      {/* Video Element */}
+                      <video
+                        ref={(el) => { videoRefs.current[brand.id] = el; }}
+                        src={brand.video}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        autoPlay
+                        loop
+                        onLoadedData={() => handleVideoLoaded(brand.id)}
+                        onClick={(e) => togglePlayPause(brand.id, e)}
+                      />
+
+                      {/* Custom Video Controls Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {/* Top Controls */}
+                        <div className="absolute top-4 right-4 flex gap-2 z-20">
+                          {/* Close Button */}
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleVideo(brand.id);
+                            }}
+                            className="bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-all duration-200 backdrop-blur-sm"
+                            aria-label="Close video"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+
+                        {/* Center Controls */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          {/* Play/Pause Button */}
+                          <button
+                            onClick={(e) => togglePlayPause(brand.id, e)}
+                            className="bg-white/90 hover:bg-white text-[#9B2C2C] p-4 rounded-full shadow-2xl transition-all duration-200 transform hover:scale-110"
+                            aria-label={isVideoPaused === brand.id ? "Play" : "Pause"}
+                          >
+                            {isVideoPaused === brand.id ? (
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            ) : (
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                              </svg>
+                            )}
+                          </button>
+                        </div>
+
+                        {/* Bottom Controls */}
+                        <div className="absolute bottom-4 right-4 flex gap-2 z-20">
+                          {/* Fullscreen Button */}
+                          <button
+                            onClick={(e) => toggleFullscreen(brand.id, e)}
+                            className="bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-all duration-200 backdrop-blur-sm"
+                            aria-label="Fullscreen"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   ) : (
                     <>
                       <Image
@@ -198,12 +304,15 @@ export default function Brands() {
                       />
                       {/* Play Button Overlay */}
                       <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="bg-white/80 p-3 rounded-full shadow-lg">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#9B2C2C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <div className="bg-white/90 p-4 rounded-full shadow-2xl transform transition-transform duration-200 group-hover:scale-110">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-[#9B2C2C]" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
                           </svg>
                         </div>
+                      </div>
+                      {/* Video Label */}
+                      <div className="absolute bottom-4 left-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                        {t('brandsPage.watchVideo') || 'Watch Video'}
                       </div>
                     </>
                   )}

@@ -16,6 +16,7 @@ const resources = {
         brands: "Brands",
         outlets: "Outlets",
         contact: "Contact Us",
+        new: "New",
       },
       quickInfo: {
         title: "Quick Info",
@@ -124,6 +125,15 @@ const resources = {
         outerDesc: "High-quality Outer CV Joint for superior performance and durability.",
         innerDesc: "Precision-engineered Inner CV Joint ensuring smooth power transmission.",
       },
+      newPage: {
+        title: "New",
+        subtitle: "Explore our latest additions",
+        description: "Discover our latest facilities, products, and team updates. Browse through our collection of new images and videos.",
+        imagesTab: "Images",
+        videosTab: "Videos",
+        allTab: "All Media",
+        noMedia: "No media available",
+      },
     },
   },
   ar: {
@@ -139,6 +149,7 @@ const resources = {
         brands: "العلامات التجارية",
         outlets: "الفروع",
         contact: "اتصل بنا",
+        new: "جديد",
       },
       quickInfo: {
         title: "معلومات سريعة",
@@ -246,6 +257,15 @@ const resources = {
         inner: "مفصل داخلي (Inner CV Joint)",
         outerDesc: "مفصل خارجي عالي الجودة لأداء متفوق ومتانة.",
         innerDesc: "مفصل داخلي مصمم بدقة لضمان نقل سلس للطاقة.",
+      },
+      newPage: {
+        title: "جديد",
+        subtitle: "استكشف أحدث إضافاتنا",
+        description: "اكتشف أحدث مرافقنا ومنتجاتنا وتحديثات فريقنا. تصفح مجموعتنا من الصور ومقاطع الفيديو الجديدة.",
+        imagesTab: "الصور",
+        videosTab: "الفيديوهات",
+        allTab: "جميع الوسائط",
+        noMedia: "لا توجد وسائط متاحة",
       },
     },
   },

@@ -19,7 +19,7 @@ export default function Header() {
     <header className="bg-gray-100 shadow-md fixed top-0 left-0 right-0 w-full z-50">
       {/* Desktop Header */}
       <div className="container mx-auto px-4 lg:px-8 h-20">
-        <div className="hidden md:grid grid-cols-3 items-center h-full">
+        <div className="hidden xl:grid grid-cols-3 items-center h-full">
           {/* Left Navigation (Start) */}
           <div className="flex items-center justify-start space-x-6 lg:space-x-8 rtl:space-x-reverse">
             <Link href="/" className="group relative inline-block">
@@ -61,6 +61,10 @@ export default function Header() {
               <span className="font-bold text-black text-base whitespace-nowrap">{t('nav.outlets')}</span>
               <span className="absolute left-0 -bottom-2 w-0 h-[2px] bg-black transition-all duration-200 group-hover:w-full"></span>
             </Link>
+            <Link href="/new" className="group relative inline-block">
+              <span className="font-bold text-black text-base whitespace-nowrap">{t('nav.new')}</span>
+              <span className="absolute left-0 -bottom-2 w-0 h-[2px] bg-black transition-all duration-200 group-hover:w-full"></span>
+            </Link>
             <Link href="/contact" className="group relative inline-block">
               <span className="font-bold text-black text-base whitespace-nowrap">{t('nav.contact')}</span>
               <span className="absolute left-0 -bottom-2 w-0 h-[2px] bg-black transition-all duration-200 group-hover:w-full"></span>
@@ -73,7 +77,7 @@ export default function Header() {
         </div>
 
         {/* Mobile Header */}
-        <div className="md:hidden flex items-center justify-between h-full">
+        <div className="xl:hidden flex items-center justify-between h-full">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-black p-2 -ml-2 focus:outline-none"
@@ -116,7 +120,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-gray-100 overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96' : 'max-h-0'
+        className={`xl:hidden bg-gray-100 overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96' : 'max-h-0'
           }`}
       >
         <div className="container mx-auto px-4 py-2">
@@ -139,6 +143,10 @@ export default function Header() {
             </Link>
             <Link href="/outlets" onClick={handleLinkClick} className="group relative block py-3">
               <span className="font-bold text-black text-base">{t('nav.outlets')}</span>
+              <span className="absolute left-0 bottom-2 w-0 h-[2px] bg-black transition-all duration-200 group-hover:w-16"></span>
+            </Link>
+            <Link href="/new" onClick={handleLinkClick} className="group relative block py-3">
+              <span className="font-bold text-black text-base">{t('nav.new')}</span>
               <span className="absolute left-0 bottom-2 w-0 h-[2px] bg-black transition-all duration-200 group-hover:w-16"></span>
             </Link>
             <Link href="/contact" onClick={handleLinkClick} className="group relative block py-3">

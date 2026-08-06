@@ -55,6 +55,21 @@ export default function Products() {
       name: 'RELIABLE CHOICE (RC)',
       image: '/products/RC/rc-main.jpg',
       description: t('brands.reliableChoice')
+    },
+    {
+      name: 'GGA',
+      image: '/products/GGA/GGA-LOGO.jpeg',
+      description: t('brands.gga')
+    },
+    {
+      name: 'FWF',
+      image: '/products/FWF/fwf-logo.jpg',
+      description: t('brands.fwf')
+    },
+    {
+      name: 'CERA',
+      image: '/products/CERA/cera-logo.png',
+      description: t('brands.cera')
     }
   ];
 

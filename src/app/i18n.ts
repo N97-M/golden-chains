@@ -40,6 +40,9 @@ const resources = {
         mikatakno: "Engine tune-up and gasket products",
         reliableChoice: "Trusted automotive parts including shock absorbers, brake pads, and suspension components",
         hkt: "High-quality automotive parts and components",
+        gga: "Premium auto parts and components from China",
+        fwf: "High-quality automotive parts from Malaysia",
+        cera: "Reliable automotive components from Thailand",
       },
       about: {
         welcomeTo: "WELCOME TO",
@@ -173,6 +176,9 @@ const resources = {
         mikatakno: "منتجات ضبط المحرك والحشيات",
         reliableChoice: "قطع غيار سيارات موثوقة بما في ذلك ممتصات الصدمات ووسادات الفرامل ومكونات التعليق",
         hkt: "قطع غيار ومكونات سيارات عالية الجودة",
+        gga: "قطع غيار سيارات ومكونات ممتازة من الصين",
+        fwf: "قطع غيار سيارات عالية الجودة من ماليزيا",
+        cera: "مكونات سيارات موثوقة من تايلاند",
       },
       about: {
         welcomeTo: "مرحبا بكم في",

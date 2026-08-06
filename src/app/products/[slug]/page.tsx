@@ -9,7 +9,7 @@ type Product = {
   longDescription: string;
   features: string[];
   images: string[];
-  video: string;
+  video?: string;
   video2?: string;
 };
 
@@ -225,6 +225,40 @@ const productData: ProductData = {
       '/products/RC/RC-5.jpg'
     ],
     video: '/products/RC/rc-video.mp4'
+  },
+  'gga': {
+    name: 'GGA',
+    description: 'Premium auto parts and components from China',
+    longDescription: '',
+    features: [],
+    images: [
+      '/products/GGA/image-1.jfif',
+      '/products/GGA/image-2.jfif',
+      '/products/GGA/image-3.jfif',
+      '/products/GGA/image-4.jfif'
+    ]
+  },
+  'fwf': {
+    name: 'FWF',
+    description: 'High-quality automotive parts from Malaysia',
+    longDescription: '',
+    features: [],
+    images: [
+      '/products/FWF/image-1.jfif',
+      '/products/FWF/image-2.jfif'
+    ]
+  },
+  'cera': {
+    name: 'CERA',
+    description: 'Reliable automotive components from Thailand',
+    longDescription: '',
+    features: [],
+    images: [
+      '/products/CERA/image-1.jfif',
+      '/products/CERA/image-2.jfif',
+      '/products/CERA/image-3.jfif',
+      '/products/CERA/image-4.png'
+    ]
   }
 };
 
@@ -268,6 +302,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
         {/* Image gallery */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Main Video Section */}
+          {product.video && (
           <div className="flex justify-center items-center col-span-full mb-8">
             <div className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden w-full max-w-3xl">
               <video
@@ -280,6 +315,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
               </video>
             </div>
           </div>
+          )}
 
           {/* Images and Second Video */}
           {validImages.slice(0, 3).map((image, index) => (
@@ -288,7 +324,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
                 src={image}
                 alt={`${product.name} - Image ${index + 1}`}
                 fill
-                className="object-cover"
+                className="object-contain p-4"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority={index === 0}
               />
@@ -296,6 +332,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
           ))}
 
           {/* Second Video Section */}
+          {(product.video2 || (product.video && validImages.length > 3)) && (
           <div className="relative h-80 bg-gray-100 rounded-lg overflow-hidden">
             <video
               className="w-full h-full object-cover"
@@ -306,6 +343,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
               Your browser does not support the video tag.
             </video>
           </div>
+          )}
 
           {/* Remaining Images */}
           {validImages.slice(3).map((image, index) => (
@@ -314,7 +352,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
                 src={image}
                 alt={`${product.name} - Image ${index + 4}`}
                 fill
-                className="object-cover"
+                className="object-contain p-4"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority={false}
               />

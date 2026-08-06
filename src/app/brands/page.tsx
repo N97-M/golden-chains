@@ -8,9 +8,9 @@ interface Brand {
   id: number;
   name: string;
   image: string;
-  video: string;
+  video?: string;
   description: string;
-  products: string[];
+  products?: string[];
 }
 
 export default function Brands() {
@@ -138,6 +138,27 @@ export default function Brands() {
       products: [
         'In Tank Fuel Pump'
       ]
+    },
+    {
+      id: 10,
+      name: 'GGA',
+      image: '/products/GGA/GGA-LOGO.jpeg',
+      description: t('brands.gga'),
+      products: []
+    },
+    {
+      id: 11,
+      name: 'FWF',
+      image: '/products/FWF/fwf-logo.jpg',
+      description: t('brands.fwf'),
+      products: []
+    },
+    {
+      id: 12,
+      name: 'CERA',
+      image: '/products/CERA/cera-logo.png',
+      description: t('brands.cera'),
+      products: []
     }
   ];
 
@@ -218,8 +239,8 @@ export default function Brands() {
             >
               <div className="grid md:grid-cols-2 gap-8">
                 {/* Media Section */}
-                <div className="relative h-[300px] bg-gray-50 rounded-lg overflow-hidden group cursor-pointer" onClick={() => toggleVideo(brand.id)}>
-                  {playingVideo === brand.id ? (
+                <div className={`relative h-[300px] bg-gray-50 rounded-lg overflow-hidden group ${brand.video ? 'cursor-pointer' : ''}`} onClick={() => brand.video && toggleVideo(brand.id)}>
+                  {playingVideo === brand.id && brand.video ? (
                     <div className="relative w-full h-full bg-black">
                       {/* Loading Spinner */}
                       {isVideoLoading === brand.id && (
@@ -303,6 +324,7 @@ export default function Brands() {
                         priority
                       />
                       {/* Play Button Overlay */}
+                      {brand.video && (
                       <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
                         <div className="bg-white/90 p-4 rounded-full shadow-2xl transform transition-transform duration-200 group-hover:scale-110">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-[#9B2C2C]" fill="currentColor" viewBox="0 0 24 24">
@@ -310,10 +332,13 @@ export default function Brands() {
                           </svg>
                         </div>
                       </div>
+                      )}
                       {/* Video Label */}
+                      {brand.video && (
                       <div className="absolute bottom-4 left-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
                         {t('brandsPage.watchVideo') || 'Watch Video'}
                       </div>
+                      )}
                     </>
                   )}
                 </div>
@@ -324,6 +349,7 @@ export default function Brands() {
                   <p className="text-gray-600 mb-6 leading-relaxed">{brand.description}</p>
 
                   {/* Products List */}
+                  {brand.products && brand.products.length > 0 && (
                   <div className="mt-auto">
                     <h3 className="text-xl font-semibold mb-3 text-black">{t('brandsPage.productsLabel')}</h3>
                     <ul className="grid grid-cols-2 gap-y-2 gap-x-4">
@@ -338,6 +364,7 @@ export default function Brands() {
                       ))}
                     </ul>
                   </div>
+                  )}
                 </div>
               </div>
             </div>

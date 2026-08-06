@@ -76,6 +76,21 @@ export default function Footer() {
                   HKT
                 </Link>
               </li>
+              <li>
+                <Link href="/products/gga" className="hover:text-gray-300 transition-colors">
+                  GGA
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/fwf" className="hover:text-gray-300 transition-colors">
+                  FWF
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/cera" className="hover:text-gray-300 transition-colors">
+                  CERA
+                </Link>
+              </li>
             </ul>
           </div>
 

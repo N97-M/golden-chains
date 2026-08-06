@@ -56,16 +56,16 @@ export default function QuickInfo() {
             {/* Brands */}
             <div>
               <h3 className="text-xl font-semibold mb-4">{t('quickInfo.brandsTitle')}</h3>
-              <div className="space-y-2">
-                <Link href="/products/kyb" className="block text-gray-300 hover:text-white transition-colors">KYB</Link>
-                <Link href="/products/perfect-rubber-parts" className="block text-gray-300 hover:text-white transition-colors">Perfect Rubber Parts</Link>
-                <Link href="/products/ibn" className="block text-gray-300 hover:text-white transition-colors">IBN</Link>
-                <Link href="/products/next-auto-cv-joint" className="block text-gray-300 hover:text-white transition-colors">Next Auto CV Joint</Link>
-                <Link href="/products/next-auto-shock-absorbers" className="block text-gray-300 hover:text-white transition-colors">Next Auto Shock Absorbers</Link>
-                <Link href="/products/smart" className="block text-gray-300 hover:text-white transition-colors">Smart</Link>
-                <Link href="/products/mikatakno" className="block text-gray-300 hover:text-white transition-colors">Mikatakno</Link>
-                <Link href="/products/reliable-choice" className="block text-gray-300 hover:text-white transition-colors">Reliable Choice (RC)</Link>
-                <Link href="/products/hkt" className="block text-gray-300 hover:text-white transition-colors">HKT</Link>
+              <div className="space-y-4">
+                <p className="text-gray-300 leading-relaxed text-sm">
+                  Explore our wide range of premium automotive parts from trusted global manufacturers.
+                </p>
+                <Link 
+                  href="/brands" 
+                  className="inline-block bg-white text-[#6E1423] font-semibold py-2 px-6 rounded hover:bg-gray-200 transition-colors shadow-sm"
+                >
+                  Explore All Brands
+                </Link>
               </div>
             </div>
 

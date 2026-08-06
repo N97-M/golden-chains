@@ -144,21 +144,34 @@ export default function Brands() {
       name: 'GGA',
       image: '/products/GGA/GGA-LOGO.jpeg',
       description: t('brands.gga'),
-      products: []
+      products: [
+        'Brake Master',
+        'Wheel Cylinder',
+        'Clutch Operating',
+        'Brake Wheel Cylinder'
+      ]
     },
     {
       id: 11,
       name: 'FWF',
       image: '/products/FWF/fwf-logo.jpg',
       description: t('brands.fwf'),
-      products: []
+      products: [
+        'Brake Pad',
+        'Brake Shoe',
+        'Handbrake'
+      ]
     },
     {
       id: 12,
       name: 'CERA',
       image: '/products/CERA/cera-logo.png',
       description: t('brands.cera'),
-      products: []
+      products: [
+        'Ball Joints',
+        'Rack End',
+        'Rod End'
+      ]
     }
   ];
 

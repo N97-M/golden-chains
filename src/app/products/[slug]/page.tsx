@@ -248,6 +248,98 @@ const productData: ProductData = {
       '/products/FWF/image-2.jfif'
     ]
   },
+  'next-auto-brake-disc': {
+    name: 'NEXT AUTO BRAKE DISC',
+    description: 'Heavyweight construction brake discs with balancing weights (TRSEEP)',
+    longDescription: `Next Auto Genuine Parts Brake Discs are engineered for maximum stopping power, safety, and durability.
+    Product Highlights:
+    • Manufactured to strict OEM standards with ISO 9001 certified assurance
+    • Heavyweight construction with high-grade alloy materials for superior strength and longer service life
+    • Precisely balanced with embedded TRSEEP balancing weights for vibration-free, smoother operation
+    • Advanced heat dissipation preventing brake fade and rotor warping
+    • OEM Part No. 43512-0K090 and extensive vehicle model applications`,
+    features: [
+      'OEM Standard & ISO 9001 Certified Assurance',
+      'Heavyweight Construction for Greater Strength',
+      'Embedded Balancing Weights (TRSEEP) for Vibration-Free Operation',
+      'Enhanced Heat Dissipation & Warp Resistance',
+      'Consistent, Reliable Braking Performance'
+    ],
+    images: [
+      '/products/NEXT-AUTO-BRAKE-DISC/brake-disc-main.jpg',
+      '/products/NEXT-AUTO-BRAKE-DISC/brake-disc-angles.jpg',
+      '/products/NEXT-AUTO-BRAKE-DISC/brake-disc-side.jpg'
+    ]
+  },
+  'nrr-rubber-parts': {
+    name: 'NRR RUBBER PARTS (ENGINE MOUNT)',
+    description: 'High-performance automotive rubber parts and engine mountings',
+    longDescription: `NRR Rubber Parts produces top-tier engine and transmission mountings designed to absorb engine vibration and provide smooth, quiet driving.
+    Product Highlights:
+    • Premium natural and synthetic rubber compounds for maximum resilience
+    • Heavy-duty steel and alloy bracket construction
+    • Superior engine vibration dampening and shock absorption
+    • OE-fit precision engineering for direct replacement
+    • Extended service life under extreme engine bay temperatures`,
+    features: [
+      'High-Grade Rubber-to-Metal Bonding',
+      'Advanced Engine Vibration & Noise Dampening',
+      'OE Precision Fitment & Alignment',
+      'Resistant to Oil, Heat, and Road Debris',
+      'Comprehensive Engine & Transmission Mount Coverage'
+    ],
+    images: [
+      '/products/NRR/nrr-logo.jpg',
+      '/products/NRR/nrr-main.jpg',
+      '/products/NRR/nrr-engine-mount-set.jpg'
+    ]
+  },
+  'nrr-engine-mount': {
+    name: 'NRR RUBBER PARTS (ENGINE MOUNT)',
+    description: 'High-performance automotive rubber parts and engine mountings',
+    longDescription: `NRR Rubber Parts produces top-tier engine and transmission mountings designed to absorb engine vibration and provide smooth, quiet driving.
+    Product Highlights:
+    • Premium natural and synthetic rubber compounds for maximum resilience
+    • Heavy-duty steel and alloy bracket construction
+    • Superior engine vibration dampening and shock absorption
+    • OE-fit precision engineering for direct replacement
+    • Extended service life under extreme engine bay temperatures`,
+    features: [
+      'High-Grade Rubber-to-Metal Bonding',
+      'Advanced Engine Vibration & Noise Dampening',
+      'OE Precision Fitment & Alignment',
+      'Resistant to Oil, Heat, and Road Debris',
+      'Comprehensive Engine & Transmission Mount Coverage'
+    ],
+    images: [
+      '/products/NRR/nrr-logo.jpg',
+      '/products/NRR/nrr-main.jpg',
+      '/products/NRR/nrr-engine-mount-set.jpg'
+    ]
+  },
+  'nrr-engine-mountain': {
+    name: 'NRR RUBBER PARTS (ENGINE MOUNT)',
+    description: 'High-performance automotive rubber parts and engine mountings',
+    longDescription: `NRR Rubber Parts produces top-tier engine and transmission mountings designed to absorb engine vibration and provide smooth, quiet driving.
+    Product Highlights:
+    • Premium natural and synthetic rubber compounds for maximum resilience
+    • Heavy-duty steel and alloy bracket construction
+    • Superior engine vibration dampening and shock absorption
+    • OE-fit precision engineering for direct replacement
+    • Extended service life under extreme engine bay temperatures`,
+    features: [
+      'High-Grade Rubber-to-Metal Bonding',
+      'Advanced Engine Vibration & Noise Dampening',
+      'OE Precision Fitment & Alignment',
+      'Resistant to Oil, Heat, and Road Debris',
+      'Comprehensive Engine & Transmission Mount Coverage'
+    ],
+    images: [
+      '/products/NRR/nrr-logo.jpg',
+      '/products/NRR/nrr-main.jpg',
+      '/products/NRR/nrr-engine-mount-set.jpg'
+    ]
+  },
   'cera': {
     name: 'CERA',
     description: 'Reliable automotive components from Thailand',

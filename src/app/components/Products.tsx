@@ -67,6 +67,16 @@ export default function Products() {
       description: t('brands.fwf')
     },
     {
+      name: 'NEXT AUTO BRAKE DISC',
+      image: '/products/NEXT-AUTO/next-auto-main.jpg',
+      description: t('brands.nextAutoBrakeDisc')
+    },
+    {
+      name: 'NRR RUBBER PARTS',
+      image: '/products/NRR/nrr-logo.jpg',
+      description: t('brands.nrrEngineMount')
+    },
+    {
       name: 'CERA',
       image: '/products/CERA/cera-logo.png',
       description: t('brands.cera')

@@ -43,6 +43,8 @@ const resources = {
         gga: "Premium auto parts and components from China",
         fwf: "High-quality automotive parts from Malaysia",
         cera: "Reliable automotive components from Thailand",
+        nextAutoBrakeDisc: "Heavyweight construction brake discs with TRSEEP balancing weights",
+        nrrEngineMount: "High-performance rubber engine and transmission mountings",
       },
       about: {
         welcomeTo: "WELCOME TO",
@@ -65,6 +67,7 @@ const resources = {
       brandsPage: {
         title: "Our Brands",
         productsLabel: "Products:",
+        watchVideo: "Click to Watch Video",
       },
       contactPage: {
         title: "Contact us",
@@ -179,6 +182,8 @@ const resources = {
         gga: "قطع غيار سيارات ومكونات ممتازة من الصين",
         fwf: "قطع غيار سيارات عالية الجودة من ماليزيا",
         cera: "مكونات سيارات موثوقة من تايلاند",
+        nextAutoBrakeDisc: "أقراص فرامل (هوبات) متينة عالية الجودة مع أوزان اتزان TRSEEP",
+        nrrEngineMount: "كراسي محرك وأجزاء مطاطية عالية الأداء لامتصاص الاهتزازات",
       },
       about: {
         welcomeTo: "مرحبا بكم في",
@@ -201,6 +206,7 @@ const resources = {
       brandsPage: {
         title: "علاماتنا التجارية",
         productsLabel: "المنتجات:",
+        watchVideo: "اضغط لمشاهدة الفيديو",
       },
       contactPage: {
         title: "اتصل بنا",
